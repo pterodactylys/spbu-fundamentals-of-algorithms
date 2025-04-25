@@ -41,8 +41,14 @@ def betweenness_centrality(G: AnyNxGraph) -> dict[Any, float]:
     return btwns_centrality 
 
 
-def eigenvector_centrality(G: AnyNxGraph) -> dict[Any, float]: 
-    pass
+def eigenvector_centrality(G: AnyNxGraph) -> dict[Any, float]:
+    eigen_centrality = {}
+    nodes = list(G.nodes())
+    eigenvalues, eigenvectors = np.linalg.eigh(nx.adjacency_matrix(G).todense())
+    major_eigenvector = eigenvectors[:, np.argmax(eigenvalues)]
+    for i in range(len(nodes)):
+        eigen_centrality[nodes[i]] = float(major_eigenvector[i])
+    return eigen_centrality
 
 def plot_centrality_measure(G: AnyNxGraph, measure: CentralityMeasure) -> None:
     values = measure(G)
