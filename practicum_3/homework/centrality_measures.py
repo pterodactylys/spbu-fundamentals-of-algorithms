@@ -73,6 +73,6 @@ if __name__ == "__main__":
     # plot_centrality_measure(G, betweenness_centrality)
     # plot_centrality_measure(G, eigenvector_centrality)
 
-equalty_check("Closeness centrality check: ", 0.0001, closeness_centrality(G), nx.closeness_centrality(G))
-equalty_check("Betweenness centrality check: ", 0.0001, betweenness_centrality(G), nx.betweenness_centrality(G))
-equalty_check("Eigenvector centrality check: ", 0.1, eigenvector_centrality(G), nx.eigenvector_centrality(G))
+    equalty_check("Closeness centrality check: ", 0.0001, closeness_centrality(G), nx.closeness_centrality(G))
+    equalty_check("Betweenness centrality check: ", 0.0001, betweenness_centrality(G), nx.betweenness_centrality(G))
+    equalty_check("Eigenvector centrality check: ", 0.1, eigenvector_centrality(G), nx.eigenvector_centrality(G))
